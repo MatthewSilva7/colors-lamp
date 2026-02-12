@@ -1,0 +1,5 @@
+.DS_Store
+Thumbs.db
+api/db_connect.php
+node_modules/
+.env
