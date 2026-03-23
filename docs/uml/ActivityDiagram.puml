@@ -1,0 +1,23 @@
+@startuml
+start
+:User opens index.html;
+:Enter Login and Password;
+:Submit to Login.php;
+if (Credentials Valid?) then (Yes)
+  :Redirect to color.html;
+  fork
+    :User enters search term;
+    :POST to SearchColors.php;
+    :Display color results;
+  fork again
+    :User enters new color name;
+    :POST to AddColor.php;
+    :SQL: INSERT INTO Colors;
+    :Confirm color added;
+  end fork
+else (No)
+  :Show Login Error;
+  stop
+endif
+stop
+@enduml
