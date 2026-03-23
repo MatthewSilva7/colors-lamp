@@ -1,23 +1,23 @@
 @startuml
 start
-:User opens index.html;
-:Enter Login and Password;
-:Submit to Login.php;
-if (Credentials Valid?) then (Yes)
+:User enters credentials in index.html;
+:POST login/password to Login.php;
+if (SELECT ID, firstName, lastName FROM Users?) then (Success)
+  :Return JSON with User Info;
   :Redirect to color.html;
   fork
-    :User enters search term;
-    :POST to SearchColors.php;
-    :Display color results;
+    :User enters search string;
+    :POST userId/search to SearchColors.php;
+    :Display Results Array;
   fork again
-    :User enters new color name;
-    :POST to AddColor.php;
-    :SQL: INSERT INTO Colors;
-    :Confirm color added;
+    :User enters color name;
+    :POST userId/color to AddColor.php;
+    :INSERT into Colors (UserId, Name);
+    :Return Empty Error String;
   end fork
-else (No)
-  :Show Login Error;
-  stop
+else (No Records Found)
+  :Return JSON with Error;
+  :Show error on UI;
 endif
 stop
 @enduml
