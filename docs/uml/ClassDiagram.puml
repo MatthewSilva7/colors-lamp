@@ -1,0 +1,25 @@
+@startuml
+class Users <<Table>> {
+  +int ID
+  +varchar FirstName
+  +varchar LastName
+  +varchar Login
+  +varchar Password
+}
+
+class Colors <<Table>> {
+  +int ID
+  +varchar Name
+  +int UserID
+}
+
+class ColorAPI <<Boundary>> {
+  +Login(login, password)
+  +AddColor(userId, color)
+  +SearchColors(userId, search)
+}
+
+Users "1" -- "0..*" Colors : owns >
+ColorAPI ..> Users : queries
+ColorAPI ..> Colors : manages
+@enduml
