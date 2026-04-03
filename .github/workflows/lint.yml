@@ -22,10 +22,10 @@ jobs:
         run: npm install
 
       - name: Run HTML Hint
-        run: npm run lint:html || true
+        run: npm run lint:html
 
       - name: Run Stylelint
-        run: npm run lint:css || true
+        run: npm run lint:css
 
       - name: Run ESLint
-        run: npm run lint:js || true
+        run: npm run lint:js
