@@ -1,3 +1,4 @@
+/* exported doLogin, doLogout, addColor, searchColor, readCookie */
 const urlBase = 'http://msilvacop4331.site/LAMPAPI';
 const extension = 'php';
 
