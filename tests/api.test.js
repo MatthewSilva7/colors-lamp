@@ -1,3 +1,4 @@
+/* global test, expect */
 const mockApiResponse = {
   status: "success",
   data: { color: "Blue", hex: "#0000FF" }
