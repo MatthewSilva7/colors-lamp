@@ -1,13 +1,13 @@
-name: Linting CI
+name: CI Pipeline
 
 on:
   push:
-    branches: [ "main", "feature/ci-linting" ]
+    branches: [ "main", "feature/ci-linting", "feature/automated-tests" ]
   pull_request:
     branches: [ "main" ]
 
 jobs:
-  lint:
+  ci-process:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -30,3 +30,5 @@ jobs:
       - name: Run ESLint
         run: npm run lint:js
 
+      - name: Run Automated Tests
+        run: npm test
